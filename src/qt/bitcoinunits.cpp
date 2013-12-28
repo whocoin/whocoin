@@ -34,9 +34,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("WHO");
-    case mBTC: return QString("mWHO");
-    case uBTC: return QString::fromUtf8("μWHO");
+    case BTC: return QString("SMC");
+    case mBTC: return QString("mSMC");
+    case uBTC: return QString::fromUtf8("μSMC");
     default: return QString("???");
     }
 }
@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("Whocoins");
-    case mBTC: return QString("Milli-Whocoins (1 / 1,000)");
-    case uBTC: return QString("Micro-Whocoins (1 / 1,000,000)");
+    case BTC: return QString("SmallChange");
+    case mBTC: return QString("Milli-SmallChange (1 / 1,000)");
+    case uBTC: return QString("Micro-SmallChange (1 / 1,000,000)");
     default: return QString("???");
     }
 }
@@ -99,7 +99,7 @@ QString BitcoinUnits::format(int unit, qint64 n, bool fPlus)
     QString quotient_str = QString::number(quotient);
     QString remainder_str = QString::number(remainder).rightJustified(num_decimals, '0');
 
-    // Right-trim excess zeros after the decimal point
+    // Right-trim excess 0's after the decimal point
     int nTrim = 0;
     for (int i = remainder_str.size()-1; i>=2 && (remainder_str.at(i) == '0'); --i)
         ++nTrim;
